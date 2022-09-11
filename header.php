@@ -18,13 +18,13 @@
                 <div class="col-6 d-flex justify-content-start">
                     <i class="fas fa-bars menu_icon"></i>
                     <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="logo">
+                        <?php the_custom_logo(); ?>
                         گروه نرم افزاری متا
                     </div>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center">
-                   <form action="#" class="searchbox">
-                       <input type="text" class="search-textbox" placeholder="جستجو...">
+                   <form action="<?php echo get_bloginfo("home"); ?>" class="searchbox" method="get">
+                       <input type="text" name="s" class="search-textbox" placeholder="جستجو...">
                         <button type="submit" class="fa-solid fa-magnifying-glass"></button>
                     </form>
                 </div>
@@ -35,16 +35,22 @@
         
             <div class="row d-flex justify-content-center">
                 <nav class="col-11 d-flex align-items-center floating-menu">
-                    <ul>
+                    <?php
+                        wp_nav_menu(array(
+                            "theme_location"=>"Main_Menu",
+                            "depth"=>"1"
+                        ));
+                    ?>
+                    <!-- <ul>
                         <li><a href="">خانه</a></li>
                         <li><a href="#customers">مشتریان</a></li>
                         <li><a href="">نمونه کار ها</a></li>
                         <li><a href="">تماس با ما</a></li>
                         <li><a href="#about">درباره ما</a></li>
-                    </ul>
+                    </ul> -->
                     <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="logo">
-                        گروه نرم افزاری متا
+                        <?php the_custom_logo(); ?>    
+                        گروه نرم افزاری متا 
                     </div>
                 </nav> 
-            </div>
+            
